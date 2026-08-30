@@ -31,6 +31,15 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   dbtflow:
-    # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view
+    bronze:
+      schema: bronze  ## Nome que o banco vai armazenar os dados brutos
+      materialized: table
+      tags: ['bronze', 'raw']
+    silver:
+      schema: silver
+      materialized: table
+      tags: ['silver', 'processed']
+    gold:
+      schema: gold
+      materialized: table
+      tags: ['gold', 'aggregated']
