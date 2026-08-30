@@ -1,0 +1,12 @@
+dbtflow:
+  outputs:
+    dev:
+      dbname: "{{env_var('DBT_DBNAME')}}"
+      host: "{{env_var('DBT_HOST')}}"
+      pass: "{{env_var('DBT_PASSWORD')}}"
+      port: 5432
+      schema: "{{env_var('DBT_SCHEMA')}}"
+      threads: 2
+      type: postgres
+      user: "{{env_var('DBT_USER')}}"
+  target: dev
